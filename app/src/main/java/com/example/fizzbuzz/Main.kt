@@ -1,10 +1,24 @@
 package com.example.fizzbuzz
 
 fun main() {
-    print("Enter maximum integer:")
-    val max = readLine()!!.toInt()
+    var notEnteredInteger = true
+    var max = 0
+    while(notEnteredInteger) {
+        try {
+            print("Enter maximum integer:")
+            max = readLine()!!.toInt()
+            notEnteredInteger = false
+            if(max <1){
+                println("Please enter a maximum greater than 0")
+                notEnteredInteger = true
+            }
+        } catch (e: NumberFormatException) {
+            println("Please enter an *integer* maximum")
+        }
+    }
     val range = 1..max
     print("Enter rules as space separated list:")
+
     val rules = readLine()!!.split(" ")
 
     for (number in range){
@@ -35,4 +49,5 @@ fun main() {
         print(output.joinToString("") + "\n")
 
     }
+
 }
