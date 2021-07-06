@@ -1,7 +1,9 @@
 package com.example.fizzbuzz
 
-fun main() {
-    val range = 1..300
+fun main(args: Array<String>) {
+    print("Enter maximum integer:")
+    val max = readLine()!!.toInt()
+    val range = 1..max
     for (number in range){
         val output = mutableListOf<String>()
         if (number % 3 == 0){
@@ -28,5 +30,6 @@ fun main() {
         }
 
         print(output.joinToString("") + "\n")
+
     }
 }
